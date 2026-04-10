@@ -1,0 +1,180 @@
+options {
+    STATIC = false;
+    DEBUG_PARSER = false;
+}
+
+PARSER_BEGIN(T01)
+package T01; 
+
+import java.io.*;
+
+public class T01 {
+    public static void main(String args[]) {
+        try {
+            
+            FileInputStream fis = new FileInputStream(new File("src/T01/fonte.txt"));
+            T01 parser = new T01(fis);
+            parser.Program();
+            System.out.println("Álbum validado com sucesso! A sintaxe está perfeita.");
+        } catch (FileNotFoundException e) {
+            System.out.println("Erro: Arquivo 'fonte.txt' não encontrado. Verifique se ele está na pasta correta.");
+        } catch (ParseException e) {
+            System.out.println("Nota fora do tom! Erro de sintaxe detectado:");
+            System.out.println(e.getMessage());
+        }
+    }
+}
+PARSER_END(T01)
+
+/* TOKENS DE ESPAÇO EM BRANCO E COMENTÁRIOS */
+SKIP : {
+    " " | "\t" | "\n" | "\r"
+  | <"//" (~["\n","\r"])* ("\n"|"\r"|"\r\n")> // Comentários de linha
+}
+
+/* PALAVRAS-CHAVE RESERVADAS */
+TOKEN : {
+    < TRACK: "track" >
+  | < PLAY: "play" >
+  | < VERSE: "verse" >
+  | < BRIDGE: "bridge" >
+  | < CHORUS: "chorus" >
+  | < ENCORE: "encore" >
+  | < MIC_DROP: "mic_drop" >
+  | < POP: "pop" >          // int
+  | < ROCK: "rock" >        // string
+  | < JAZZ: "jazz" >        // boolean
+  | < CLASSICAL: "classical"> // void
+  | < TRUE: "true" >
+  | < FALSE: "false" >
+}
+
+/* OPERADORES E PONTUAÇÃO */
+TOKEN : {
+    < ASSIGN: "=" >
+  | < PLUS: "+" >
+  | < MINUS: "-" >
+  | < MULT: "*" >
+  | < DIV: "/" >
+  | < EQ: "==" >
+  | < LT: "<" >
+  | < GT: ">" >
+  | < LPAREN: "(" >
+  | < RPAREN: ")" >
+  | < LBRACE: "{" >
+  | < RBRACE: "}" >
+  | < SEMICOLON: ";" >
+  | < COLON: ":" >
+  | < COMMA: "," >
+}
+
+/* IDENTIFICADORES E LITERAIS */
+TOKEN : {
+    < NUM: (["0"-"9"])+ >
+  | < STRING: "\"" (~["\""])* "\"" >
+  | < ID: ["a"-"z","A"-"Z"] (["a"-"z","A"-"Z","0"-"9","_"])* >
+}
+
+/* --- REGRAS GRAMATICAIS --- */
+
+void Program() : {}
+{
+    ( Function() | VarDecl() )* <EOF>
+}
+
+void Function() : {}
+{
+    <TRACK> <ID> <LPAREN> ParamList() <RPAREN> <COLON> Type() Block()
+}
+
+void ParamList() : {}
+{
+    [ Type() <ID> ( <COMMA> Type() <ID> )* ]
+}
+
+void Type() : {}
+{
+    <POP> | <ROCK> | <JAZZ> | <CLASSICAL>
+}
+
+void Block() : {}
+{
+    <LBRACE> ( Statement() )* <RBRACE>
+}
+
+void Statement() : {}
+{
+    LOOKAHEAD(2) VarDecl()
+  | LOOKAHEAD(2) Assign()
+  | IfStmt()
+  | WhileStmt()
+  | ReturnStmt()
+  | PrintStmt()
+  | FuncCallStmt()
+}
+
+void VarDecl() : {}
+{
+    Type() <ID> <SEMICOLON>
+}
+
+void Assign() : {}
+{
+    <ID> <ASSIGN> Expr() <SEMICOLON>
+}
+
+void IfStmt() : {}
+{
+    <VERSE> <LPAREN> Expr() <RPAREN> Block() [ <BRIDGE> Block() ]
+}
+
+void WhileStmt() : {}
+{
+    <CHORUS> <LPAREN> Expr() <RPAREN> Block()
+}
+
+void ReturnStmt() : {}
+{
+    <ENCORE> Expr() <SEMICOLON>
+}
+
+void PrintStmt() : {}
+{
+    <MIC_DROP> Expr() <SEMICOLON>
+}
+
+void FuncCallStmt() : {}
+{
+    <PLAY> <ID> <LPAREN> ArgList() <RPAREN> <SEMICOLON>
+}
+
+void ArgList() : {}
+{
+    [ Expr() ( <COMMA> Expr() )* ]
+}
+
+void Expr() : {}
+{
+    Term() ( ( <PLUS> | <MINUS> | <EQ> | <LT> | <GT> ) Term() )*
+}
+
+void Term() : {}
+{
+    Factor() ( ( <MULT> | <DIV> ) Factor() )*
+}
+
+void Factor() : {}
+{
+    <NUM>
+  | <STRING>
+  | <TRUE>
+  | <FALSE>
+  | LOOKAHEAD(2) FuncCallExpr()
+  | <ID>
+  | <LPAREN> Expr() <RPAREN>
+}
+
+void FuncCallExpr() : {}
+{
+    <PLAY> <ID> <LPAREN> ArgList() <RPAREN>
+}
