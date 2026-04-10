@@ -1,0 +1,8 @@
+//teste25
+//mutacao do teste válido 06, alterando a regra de escopo global. No teste 06 a variável é declarada globalmente e atribuída dentro da função. Aqui, tentamos fazer uma atribuição de valor (um statement) solta diretamente no escopo global.
+rock single;
+single = "Some Might Say"; 
+
+track playlist() : classical {
+    mic_drop single;
+}

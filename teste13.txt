@@ -1,0 +1,6 @@
+//teste13
+//funcao sem parênteses ()
+
+track main() : classical {
+    play intro; // Era pra ser play intro();
+}

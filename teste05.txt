@@ -1,0 +1,12 @@
+//teste05
+//Operacoes matematicas e declaracao de variaveis
+track math_rock() : pop {
+    pop tempo;
+    pop beats;
+    pop measures;
+    tempo = 120;
+    beats = 4;
+    measures = 16;
+    
+    encore tempo + beats * measures / 2 - 1;
+}

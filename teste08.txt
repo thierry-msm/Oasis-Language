@@ -1,0 +1,11 @@
+//teste08
+//tipos de dados
+track charts() : classical {
+    pop chart_position;
+    rock album_name;
+    jazz is_touring;
+
+    chart_position = 1;
+    album_name = "The dark side of the Moon";
+    is_touring = true;
+}

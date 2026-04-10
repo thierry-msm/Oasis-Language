@@ -1,0 +1,9 @@
+//teste21
+//mutacao do teste válido 07, removendo os parênteses obrigatórios que envolvem a expressão lógica.
+track acapella() : classical {
+    pop volume;
+    volume = 11;
+    verse volume == 11 { 
+        mic_drop "Loud!";
+    }
+}

@@ -1,0 +1,6 @@
+//teste16
+//operador em local errado em expressao matematica 
+track broken_guitar() : classical {
+    pop x;
+    x = * 5; // Não pode começar expressão com *
+}

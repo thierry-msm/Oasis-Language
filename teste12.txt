@@ -1,0 +1,8 @@
+//teste12
+//bridge (else) sem verse (if)
+
+track out_of_tune() : classical {
+    bridge {
+        mic_drop "Solo sem banda?";
+    }
+}

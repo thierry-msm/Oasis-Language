@@ -1,0 +1,5 @@
+//teste22
+//mutacao do teste válido 01, alterando a declaração do tipo primeiro, e a atribuição de valor depois, tentando fazer tudo na mesma linha.
+track fast_tempo() : classical {
+    pop bpm = 150; 
+}

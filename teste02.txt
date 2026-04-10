@@ -1,0 +1,15 @@
+//teste02
+//estruturas repeticao
+track tour() : classical {
+    pop liam;
+    pop noel;
+    liam = 0;
+    chorus (liam < 3) {
+        noel = 0;
+        chorus (noel < 5) {
+            mic_drop "Don't Look Back In Anger";
+            noel = noel + 1;
+        }
+        liam = liam + 1;
+    }
+}

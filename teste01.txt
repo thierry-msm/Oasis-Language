@@ -1,0 +1,6 @@
+//Declaracao simples com print
+track soundcheck() : classical {
+    rock saudacao;
+    saudacao = "Hello Music!";
+    mic_drop saudacao;
+}

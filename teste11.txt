@@ -1,0 +1,7 @@
+//teste11
+//falta ponto e vírgul;
+track mistake() : classical {
+    rock song;
+    song = "Supersonic" // Faltou o ; aqui
+    mic_drop song;
+}

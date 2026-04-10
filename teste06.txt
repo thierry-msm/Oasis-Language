@@ -1,0 +1,10 @@
+//teste06
+//Variaveis globais
+rock best_band;
+pop year_formed;
+
+track history() : classical {
+    best_band = "Oasis";
+    year_formed = 1991;
+    mic_drop best_band;
+}

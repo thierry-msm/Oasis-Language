@@ -1,0 +1,13 @@
+//teste07
+//logica IF
+track logic() : classical {
+    pop albuns_vendidos;
+    albuns_vendidos = 70000000;
+    
+    verse (albuns_vendidos > 50000000) {
+        mic_drop "Platinum Record!";
+    }
+    verse (albuns_vendidos == 70000000) {
+        mic_drop "Diamond! Champagne Supernova!";
+    }
+}

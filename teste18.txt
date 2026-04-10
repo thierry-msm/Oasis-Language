@@ -1,0 +1,6 @@
+//teste18
+//parâmetros de função sem tipo
+track dueto(liam, noel) : rock {
+    // Falta definir o tipo (ex: pop liam, rock noel)
+    encore "Fight!";
+}

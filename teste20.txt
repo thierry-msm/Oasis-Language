@@ -1,0 +1,6 @@
+//teste20
+//símbolo que não existe na linguagem
+track indie() : classical {
+    rock twitter;
+    twitter = @Oasis; // O token @ não existe no arquivo .jj
+}

@@ -1,0 +1,26 @@
+//teste10
+//lacos de repeticao, if, else
+jazz is_live;
+
+track intro(pop count) : pop {
+    pop i;
+    i = 0;
+    chorus (i < count) {
+        mic_drop "1, 2, 3, 4!";
+        i = i + 1;
+    }
+    encore i;
+}
+
+track wembley_concert() : classical {
+    rock current_song;
+    is_live = true;
+    current_song = "Live Forever";
+
+    verse (is_live == true) {
+        play intro(4);
+        mic_drop current_song;
+    } bridge {
+        mic_drop "Studio Version";
+    }
+}

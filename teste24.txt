@@ -1,0 +1,6 @@
+//teste24
+//mutacao do teste válido 01 (ou qualquer teste com mic_drop),  alterando a finalização do statement 
+//ao inserir um duplo ponto e vírgula, o que a gramática não reconhece como um statement vazio válido.
+track echo() : classical {
+    mic_drop "Echo";; 
+}

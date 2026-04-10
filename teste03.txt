@@ -1,0 +1,22 @@
+//teste03
+//Condicionais
+track legend_battle() : classical {
+    pop elvis;
+    pop michael;
+    pop sinatra;
+    pop mcartney;
+    elvis = 1; 
+    michael = 2; 
+    sinatra = 3; 
+    mcartney = 4; 
+    
+    verse (elvis == michael) {
+        mic_drop "King of Rock vs Pop";
+    } bridge {
+        verse (sinatra > mcartney) {
+            mic_drop "My Way";
+        } bridge {
+            mic_drop "Let It Be";
+        }
+    }
+}

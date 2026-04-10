@@ -1,0 +1,9 @@
+//teste04
+//Chamadas de funcao
+track collab(rock singer, pop years_active) : rock {
+    encore "Oasis Reunion!";
+}
+
+track main() : classical {
+    play collab("Liam Gallagher", 15);
+}

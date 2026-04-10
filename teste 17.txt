@@ -1,0 +1,5 @@
+//teste 17
+//declaracao de funcao incorreta
+trak demo() : classical { 
+    // "trak" não existe, é "track"
+}

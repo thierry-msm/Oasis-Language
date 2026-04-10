@@ -1,0 +1,12 @@
+//teste09
+//função que chama outra funcao
+
+track write_song() : rock {
+    encore "Wonderwall";
+}
+
+track record_album() : classical {
+    rock hit;
+    hit = play write_song();
+    mic_drop hit;
+}
